@@ -1,0 +1,4 @@
+cs.ks.ac.kr/db/
+
+ID : database
+PW : elql<>
