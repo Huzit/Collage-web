@@ -1,0 +1,11 @@
+골반 왼쪽으로 더 틀어
+
+https://gist.github.com/sigmadream/f69066c2141012f3857840bcde9a81c8 을 application.yml 파일로 복붙하고
+
+show_sql 이 false로 되있을 경우 true로 바꿔준다. 
+이후 localhost:8080 시 서버가 정상적으로 구동되는 것을 볼 수 있으며 localhost:8080/h2-console을 입력하면
+DB에 접근할 수있다.
+
+예제는 101페이지 102페이지 를 보면된다
+
+27일 1교시 실습 -= 설정파일 설정 및 의존성들의 의미  및 프레임워크 설명
