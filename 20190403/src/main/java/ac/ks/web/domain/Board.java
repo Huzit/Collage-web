@@ -1,24 +1,24 @@
 package ac.ks.web.domain;
 
-import com.sun.javafx.beans.IDProperty;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+import javax.persistence.*;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
-
-//Lombok
+// Lombok
 @Getter
 @NoArgsConstructor
 
-//Jpa
+// JPA
 @Entity
 @Table
-public class Board {
+public class Board implements Serializable {
 
-    @Id //PK 제일유멍한 제약조건
+    @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
@@ -34,19 +34,20 @@ public class Board {
 
     @Column
     @Enumerated(EnumType.STRING)
-    private BoardType boardType; //프리/노티스를 선택하게 하는거
+    private BoardType boardType;
 
     @Column
     private LocalDateTime createdDate;
 
     @Column
     private LocalDateTime updatedDate;
-//07:43분 ----------------DB는 만들어졌다.
-    @Builder//Lombok
-    public Board(String title, String subTitle, String content, LocalDateTime createdDate, LocalDateTime updatedDate) {
+
+    @Builder
+    public Board(String title, String subTitle, String content, BoardType boardType, LocalDateTime createdDate, LocalDateTime updatedDate) {
         this.title = title;
         this.subTitle = subTitle;
         this.content = content;
+        this.boardType = boardType;
         this.createdDate = createdDate;
         this.updatedDate = updatedDate;
     }
