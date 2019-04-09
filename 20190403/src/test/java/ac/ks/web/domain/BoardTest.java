@@ -44,7 +44,7 @@ public class BoardTest {
         assertThat(findBoard.getIdx()).isEqualTo(savedBoard.getIdx());
 
     }
-    /*public void testCreateObject(){
+    /*public void testCreateObject(){ //아주 조악하게 만든 테스트케이스
         List<Board> all = boardRepository.findAll();
         if(all.size() == 1){
             System.out.println("saved");
