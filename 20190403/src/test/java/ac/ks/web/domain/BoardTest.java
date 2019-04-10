@@ -37,11 +37,13 @@ public class BoardTest {
     @Test //Runnable methods에 대응책
     public void testRead() {
         Board findBoard = boardRepository.findById(savedBoard.getIdx()).orElse(null);
+        //finebyid로 id를 찾아서 있으면 반환, 없으면 orElse이후에 나오는것을 반환한다.
+        assertThat(findBoard.getIdx()).isEqualTo(savedBoard.getIdx());
 
         //findBoard.getIdx() == savedBoard.getIdx();  우리의 목표
         //findBoard.getContent() == savedBoard.getContent();
 
-        assertThat(findBoard.getIdx()).isEqualTo(savedBoard.getIdx());
+
 
     }
     /*public void testCreateObject(){ //아주 조악하게 만든 테스트케이스
