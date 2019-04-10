@@ -40,6 +40,11 @@ public class BoardTest {
         //finebyid로 id를 찾아서 있으면 반환, 없으면 orElse이후에 나오는것을 반환한다.
         assertThat(findBoard.getIdx()).isEqualTo(savedBoard.getIdx());
 
+        List<Board> findByTitle = boardRepository.findAllByTItle("제목");
+        assertThat(findByTitle.size()).isEqualTo(0);
+
+        List<Board> findByTitle1 = boardRepository.findAllByTItle("제목");
+        assertThat(findByTitle1.size()).isEqualTo(1);
         //findBoard.getIdx() == savedBoard.getIdx();  우리의 목표
         //findBoard.getContent() == savedBoard.getContent();
 
