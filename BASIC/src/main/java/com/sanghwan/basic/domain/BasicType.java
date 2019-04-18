@@ -1,11 +1,11 @@
-package com.sanghwan.board.domain;
+package com.sanghwan.basic.domain;
 
-public enum BoardType {
+public enum BasicType {
     notice("공지사항"),
     free("자유게시판");
 
     private String value;
 
     public String getValue() {return value;}
-    BoardType(String value) {this.value = value;}
+    BasicType(String value) {this.value = value;}
 }

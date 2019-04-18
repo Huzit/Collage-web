@@ -36,8 +36,8 @@ public class BoardTest {
 
     @Test
     public void testRead(){
-        Board findBoard = boardRepository.findById(savedBoard.getIdx()).orElse(null);
-        assertThat(findBoard.getIdx()).isEqualTo(savedBoard.getIdx());
+       // Board findBoard = boardRepository.findById(savedBoard.getIdx()).orElse(null);
+        //assertThat(findBoard.getIdx()).isEqualTo(savedBoard.getIdx());
     }
     /*public void testRead(){ //매우 조악한 방법을 이용했드아
         List<Board> all = boardRepository.findAll();

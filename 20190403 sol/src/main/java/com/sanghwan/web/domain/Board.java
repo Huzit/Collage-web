@@ -40,7 +40,6 @@ public class Board {
     private LocalDateTime updatedDate;
 
     @Builder
-
     public Board(String title, String subTitle, String content, BoardType boardType, LocalDateTime createdDate, LocalDateTime updatedDate) {
         this.title = title;
         this.subTitle = subTitle;

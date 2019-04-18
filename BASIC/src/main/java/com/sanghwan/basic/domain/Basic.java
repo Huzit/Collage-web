@@ -1,10 +1,10 @@
-package com.sanghwan.board.domain;
+package com.sanghwan.basic.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Getter
@@ -12,17 +12,28 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="Basic")
-public class Board implements Serializable {
+public class Basic implements Serializable {
+
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idx;
+
     @Column
     private String name;
+
     @Column
     private String label;
+
     @Column
     private String email;
+
     @Column
     private String phone;
 
-    public Board(String name, String label, String email, String phone) {
+    @Builder
+    public Basic(Long idx, String name, String label, String email, String phone) {
+        //this.idx = idx;
         this.name = name;
         this.label = label;
         this.email = email;
