@@ -32,8 +32,7 @@ public class Basic implements Serializable {
     private String phone;
 
     @Builder
-    public Basic(Long idx, String name, String label, String email, String phone) {
-        //this.idx = idx;
+    public Basic(String name, String label, String email, String phone) {
         this.name = name;
         this.label = label;
         this.email = email;
