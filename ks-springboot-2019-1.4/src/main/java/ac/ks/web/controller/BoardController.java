@@ -16,23 +16,25 @@ import java.time.LocalDateTime;
 
 @Controller
 public class BoardController {
-    private BoardRepository boardRepository;
-    private BoardService boardService;
 
-    public BoardController(BoardRepository boardRepository, BoardService boardService) {
-        this.boardRepository = boardRepository;
+    private BoardService boardService;
+    private BoardRepository boardRepository;
+
+    public BoardController(BoardService boardService, BoardRepository boardRepository) {
         this.boardService = boardService;
+        this.boardRepository = boardRepository;
     }
 
     @GetMapping("/")
     public String list(@PageableDefault Pageable pageable, Model model) {
         model.addAttribute("boardList", boardService.findBoardList(pageable));
-        return "index";//알아야 하는것 실어서 보낸다는 개념, 모델이 보드서비스로 찾은걸 모드 리스트에 실어서 모델을 이용해서 인덱스로 보낸다는 의미
+        return "index";
     }
 
-    @GetMapping("/new")
-    public String form(Board board){
-        return "new";
+    @GetMapping("/{idx}")
+    public String read(@PathVariable Long idx, Model model) {
+        model.addAttribute("board", boardService.findBoardByIdx(idx));
+        return "item";
     }
 
     @PostMapping("/add")
@@ -41,14 +43,14 @@ public class BoardController {
         board.setCreatedDate(LocalDateTime.now());
         board.setUpdatedDate(LocalDateTime.now());
         Board saveBoard = boardRepository.save(board);
-
         model.addAttribute("board", boardService.findBoardByIdx(saveBoard.getIdx()));
         return "item";
     }
 
-    @GetMapping("/{idx}")
-    public String read(@PathVariable Long idx, Model model) {
-        model.addAttribute("board", boardService.findBoardByIdx(idx));
-        return "item";
+    @GetMapping("/new")
+    public String form(Board board) {
+        return "new";
     }
+
+
 }
