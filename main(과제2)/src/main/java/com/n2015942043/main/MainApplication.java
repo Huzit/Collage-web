@@ -19,8 +19,7 @@ public class MainApplication {
 		SpringApplication.run(MainApplication.class, args);
 	}
 	@Bean
-	public CommandLineRunner runner(BasicRepository basicRepository, ProfileRepository profileRepository) {
-//		return (args) -> IntStream.rangeClosed(1, 200).forEach( index -> {
+	public CommandLineRunner runner(BasicRepository basicRepository) {
 		return (args) -> {
 			basicRepository.save(Basic.builder()
 					.email("hong@gmail.com")
@@ -40,6 +39,12 @@ public class MainApplication {
 					.name("춘향이")
 					.phone("234-567-8901")
 					.build());
+		};
+	}
+
+	@Bean
+	public CommandLineRunner runner1(ProfileRepository profileRepository){
+		return (args) -> {
 
 			profileRepository.save(Profile.builder()
 					.network("퍼렁새")
@@ -60,6 +65,5 @@ public class MainApplication {
 					.createDat(LocalDateTime.now())
 					.build());
 		};
-//		});
 	}
 }

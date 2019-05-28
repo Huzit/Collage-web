@@ -42,7 +42,7 @@
         <tr th:each="basic : ${basicList}">
             <td th:text="${basic.idx}"></td>
             <td>
-                <a th:href="'/basic/' + ${basic.name}" th:text="${basic.name}"></a>
+                <a th:href="'/basic/' + ${basic.idx}" th:text="${basic.name}"></a>
             </td>
             <td th:text="${basic.label}"></a></td>
             <td th:text="${basic.email}"></a></td>
@@ -71,7 +71,7 @@
         <tr th:each="profile : ${profileList}">
             <td th:text="${profile.idx}"></td>
             <td>
-                <a th:href="'/profile/' + ${profile.network}" th:text="${profile.network}"></a>
+                <a th:href="'/profile/' + ${profile.idx}" th:text="${profile.network}"></a>
             </td>
             <td th:text="${profile.username}"></td>
             <td th:text="${profile.url}"></td>

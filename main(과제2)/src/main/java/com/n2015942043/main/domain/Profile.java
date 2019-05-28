@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 public class Profile implements Serializable {
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 
     @Column
