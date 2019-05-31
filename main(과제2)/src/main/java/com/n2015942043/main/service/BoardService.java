@@ -18,10 +18,10 @@ public class BoardService {
         this.profileRepository = profileRepository;
     }
     public Basic findBasicByIdx(Long idx){
-        return basicRepository.findByIdx(idx);
+        return basicRepository.findById(idx).orElse(null);
     }
     public Profile findProfileByIdx(Long idx){
-        return profileRepository.findByIdx(idx);
+        return profileRepository.findById(idx).orElse(null);
     }
 
     public List<Basic> findBasicAll(){

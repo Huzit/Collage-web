@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProfileRepository extends JpaRepository<Profile, Long> {
     Profile findByNetwork(final String network);
-    Profile findByIdx(final Long idx);
+    Profile findByUrl(final String url);
 }
